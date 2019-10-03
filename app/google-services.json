@@ -1,0 +1,64 @@
+{
+  "project_info": {
+    "project_number": "433070080923",
+    "firebase_url": "https://ourdiet-alpha.firebaseio.com",
+    "project_id": "ourdiet-alpha",
+    "storage_bucket": "ourdiet-alpha.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433070080923:android:4b13a95dd57d1d39",
+        "android_client_info": {
+          "package_name": "com.odstudio.ourdiet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433070080923-ajprilk1821nph2fgm0spr0k8ruut4qd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.odstudio.ourdiet",
+            "certificate_hash": "ad9812ae8331a4f00e5c8c650ae14b61b46756ce"
+          }
+        },
+        {
+          "client_id": "433070080923-amoqgvf5346ukge3p52qb2f01hp5m6qs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.odstudio.ourdiet",
+            "certificate_hash": "8f46c33dedc75cdcd4bb43529b168ae4d700d0ab"
+          }
+        },
+        {
+          "client_id": "433070080923-kts6km7bp30u0grajvg8acga7avnbm2f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.odstudio.ourdiet",
+            "certificate_hash": "767d1d4c7cf3cd63559cc165f9bd83ac0fc623dc"
+          }
+        },
+        {
+          "client_id": "433070080923-edf6omehog3h1on3mop8j61rc99303aq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCaMaAYs1XcJY28sqGhOPcopUNHIUN2B0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "433070080923-edf6omehog3h1on3mop8j61rc99303aq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

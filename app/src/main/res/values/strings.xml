@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Our Diet</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="title_home">Home</string>
+    <string name="title_groups">Groups</string>
+    <string name="title_friends">Friends</string>
+    <string name="home">Home</string>
+    <string name="groups">Groups</string>
+    <string name="friends">Friends</string>
+
+    <!--- Hint -->
+    <string name="hint_email">請輸入電子郵箱</string>
+    <string name="hint_password">請輸入密碼</string>
+    <string name="hint_first_name">請輸入姓</string>
+    <string name="hint_last_name">請輸入名字</string>
+    <!--- Others -->
+    <string name="send">登入</string>
+    <string name="banner">banner</string>
+    <string name="NotAccount">我還沒有賬號</string>
+    <string name="personal">個人資料</string>
+    <string name="setting">設定</string>
+    <string name="logout">登出</string>
+    <string name="user_image">使用者頭像</string>
+    <string name="user_name">使用者名稱</string>
+    <string name="user_email">使用者郵箱</string>
+    <string name="btnRegister">註冊</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login_title">Login</string>
+    <string name="create_act">Create Account</string>
+    <string name="forgotpassword">忘記密碼</string>
+    <string name="UploadIMG">上傳頭像</string>
+    <string name="hint_nickname">請輸入暱稱</string>
+    <string name="hint_birthday">請輸入生日</string>
+    <string name="communicate">Communicate</string>
+</resources>
