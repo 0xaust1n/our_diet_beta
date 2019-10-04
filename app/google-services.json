@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "433070080923-g2qif6ge8ohkjuh0kiu7k2cd3qdpdmtu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.odstudio.ourdiet",
+            "certificate_hash": "570a5ba3d5cd00aac86499ac23c9cdd7f50e9843"
+          }
+        },
+        {
           "client_id": "433070080923-ajprilk1821nph2fgm0spr0k8ruut4qd.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
