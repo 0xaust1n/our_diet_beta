@@ -1,32 +1,32 @@
 package com.odstudio.ourdiet
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import com.firebase.ui.auth.AuthUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    //Global Declare
     private lateinit var mDrawerLayout: DrawerLayout
-
+    private var finished:Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        verifyAlreadyLoggedout()
+        verifyUserIsLoggedIn()
+        //Below Staring Drawer Navigation
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         val actionbar: ActionBar? = supportActionBar
         actionbar?.apply {
             setDisplayHomeAsUpEnabled(true)
@@ -43,8 +43,8 @@ class MainActivity : AppCompatActivity() {
             // Handle navigation view item clicks here.
             when (menuItem.itemId) {
 
-                R.id.nav_gallery -> {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.nav_gallery)
+                R.id.nav_personal -> {
+                    findNavController(R.id.nav_host_fragment).navigate(R.id.nav_personal)
                 }
                 R.id.nav_slideshow -> {
                     findNavController(R.id.nav_host_fragment).navigate(R.id.nav_slideshow)
@@ -55,22 +55,23 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_share -> {
                     findNavController(R.id.nav_host_fragment).navigate(R.id.nav_share)
                 }
-                R.id.nav_send -> {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.nav_send)
+                R.id.nav_logout -> {
+                    logout()
                 }
             }
             true
         }
+        //Below Starting Bottom Navigation
         val bottomNavView: BottomNavigationView = findViewById(R.id.navigation)
         bottomNavView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
     }
 
-  //  override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    //  override fun onCreateOptionsMenu(menu: Menu): Boolean {
     //    Inflate the menu; this adds items to the action bar if it is present.
-      //  menuInflater.inflate(R.menu.main, menu)
-        //return true
-   // }
+    //  menuInflater.inflate(R.menu.main, menu)
+    //return true
+    // }
 
     //appbar - toolbar button click
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -99,4 +100,33 @@ class MainActivity : AppCompatActivity() {
             }
             false
         }
+
+    private fun logout() {
+        finished = true
+        AuthUI.getInstance()
+            .signOut(this)
+            .addOnCompleteListener {
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
+
+            }
+    }
+
+    private fun verifyAlreadyLoggedout() {
+        if (finished) {
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+    }
+
+    private fun verifyUserIsLoggedIn() {
+        val logged = FirebaseAuth.getInstance().currentUser
+        if (logged == null) {
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+    }
 }

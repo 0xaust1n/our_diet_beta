@@ -1,12 +1,13 @@
-package com.odstudio.ourdiet.ui.frineds
+package com.odstudio.ourdiet.ui.personal
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class FriendsViewModel : ViewModel() {
+class PersonalViewModel : ViewModel() {
+
     private val _text = MutableLiveData<String>().apply {
-        value = "This is Friends Fragment"
+        value = "This is personal Fragment"
     }
     val text: LiveData<String> = _text
 }

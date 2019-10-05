@@ -1,4 +1,4 @@
-package com.odstudio.ourdiet.ui.frineds
+package com.odstudio.ourdiet.ui.friends
 
 import android.os.Bundle
 import android.view.LayoutInflater

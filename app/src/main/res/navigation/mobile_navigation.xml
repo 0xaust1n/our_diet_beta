@@ -7,10 +7,10 @@
 
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.odstudio.ourdiet.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_personal"
+        android:name="com.odstudio.ourdiet.ui.personal.PersonalFragment"
+        android:label="@string/menu_personal"
+        tools:layout="@layout/fragment_personal" />
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -30,11 +30,6 @@
         android:label="@string/menu_share"
         tools:layout="@layout/fragment_share" />
 
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="com.odstudio.ourdiet.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
 
     //Below Starting Bottom Navigation Fragment
     <fragment
@@ -46,7 +41,7 @@
     <fragment
         android:id="@+id/nav_friends"
         android:label="@string/friends"
-        android:name="com.odstudio.ourdiet.ui.frineds.FriendsFragment"
+        android:name="com.odstudio.ourdiet.ui.friends.FriendsFragment"
         tools:layout="@layout/fragment_friends" />
 
     <fragment

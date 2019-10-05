@@ -1,27 +1,25 @@
-package com.odstudio.ourdiet.ui.gallery
+package com.odstudio.ourdiet.ui.personal
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.odstudio.ourdiet.R
 
-class GalleryFragment : Fragment() {
+class PersonalFragment : Fragment() {
 
-    private lateinit var galleryViewModel: GalleryViewModel
+    private lateinit var personalViewModel: PersonalViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel =
-            ViewModelProviders.of(this).get(GalleryViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
+        personalViewModel =
+            ViewModelProviders.of(this).get(PersonalViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_personal, container, false)
         return root
     }
 }
