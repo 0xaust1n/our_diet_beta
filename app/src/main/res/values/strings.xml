@@ -44,4 +44,10 @@
     <string name="hint_nickname">請輸入暱稱</string>
     <string name="hint_birthday">請輸入生日</string>
     <string name="communicate">Communicate</string>
+    <string name="tvNickname">暱稱</string>
+    <string name="tvBirthday">生日</string>
+    <string name="tvHight">身高</string>
+    <string name="tvWeight">體重</string>
+    <string name="tvGender">性別</string>
+    <string name="btnPersonsend">送出</string>
 </resources>
