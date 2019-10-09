@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     //Global Declare
     private lateinit var mDrawerLayout: DrawerLayout
     private var finished:Boolean = false
+    //Starting OnCreate Below
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

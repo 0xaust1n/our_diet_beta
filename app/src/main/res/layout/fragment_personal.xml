@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_green_light">
@@ -27,14 +26,14 @@
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/rounded_etext"
+        android:background="@drawable/rounded_text"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/hint_nickname"
         android:importantForAutofill="no"
-        android:inputType="textPersonName|text"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvNickname"
         app:layout_constraintTop_toBottomOf="@+id/uploadButton" />
@@ -44,7 +43,7 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_select_photo_button"
         android:gravity="center"
         android:text="@string/tvNickname"
@@ -52,6 +51,24 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uploadButton" />
+
+    <EditText
+        android:id="@+id/et_birthday"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/hint_birthday"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvBirthday"
+        app:layout_constraintTop_toBottomOf="@+id/et_nickname"
+        android:importantForAutofill="no"
+        android:inputType="none" />
+
 
     <TextView
         android:id="@+id/tvBirthday"
@@ -67,8 +84,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNickname" />
 
+    <EditText
+        android:id="@+id/et_height"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/rounded_text"
+        android:hint="@string/hint_height"
+        android:gravity="center"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvHeight"
+        app:layout_constraintTop_toBottomOf="@+id/et_birthday" />
+
     <TextView
-        android:id="@+id/tvHight"
+        android:id="@+id/tvHeight"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
@@ -80,6 +113,23 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvBirthday" />
+
+    <EditText
+        android:id="@+id/et_weight"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/rounded_text"
+        android:gravity="center"
+        android:hint="@string/hint_weight"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:keepScreenOn="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvWeight"
+        app:layout_constraintTop_toBottomOf="@+id/et_height" />
 
     <TextView
         android:id="@+id/tvWeight"
@@ -93,7 +143,19 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHight" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHeight" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinnerGender"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/rounded_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvGender"
+        app:layout_constraintTop_toBottomOf="@+id/et_weight" />
 
     <TextView
         android:id="@+id/tvGender"
@@ -110,65 +172,17 @@
         app:layout_constraintTop_toBottomOf="@+id/tvWeight" />
 
     <Button
-        android:id="@+id/btnPersonsend"
+        android:id="@+id/btnPersonSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_etext"
-        android:text="@string/btnPersonsend"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_text"
+        android:text="@string/btnPersonSend"
         android:textColor="#43974D"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uploadButton"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerGender" />
 
-    <Spinner
-        android:id="@+id/spinnerBirthday"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/rounded_etext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvBirthday"
-        app:layout_constraintTop_toBottomOf="@+id/et_nickname" />
-
-    <Spinner
-        android:id="@+id/spinnerHight"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/rounded_etext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvHight"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerBirthday" />
-
-    <Spinner
-        android:id="@+id/spinnerWeight"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/rounded_etext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvWeight"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerHight" />
-
-    <Spinner
-        android:id="@+id/spinnerGender"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/rounded_etext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvGender"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerWeight" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
