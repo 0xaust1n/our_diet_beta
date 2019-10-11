@@ -6,11 +6,6 @@
     app:startDestination="@+id/nav_home">
 
 
-    <fragment
-        android:id="@+id/nav_personal"
-        android:name="com.odstudio.ourdiet.ui.personal.PersonalFragment"
-        android:label="@string/menu_personal"
-        tools:layout="@layout/fragment_personal" />
 
     <fragment
         android:id="@+id/nav_slideshow"

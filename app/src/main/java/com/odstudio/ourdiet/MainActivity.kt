@@ -45,7 +45,8 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
 
                 R.id.nav_personal -> {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.nav_personal)
+                    val intent = Intent(this, PersonalActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.nav_slideshow -> {
                     findNavController(R.id.nav_host_fragment).navigate(R.id.nav_slideshow)
