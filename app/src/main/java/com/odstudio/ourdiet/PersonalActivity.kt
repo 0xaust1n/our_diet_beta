@@ -18,6 +18,7 @@ import com.odstudio.ourdiet.Data_Class.User2
 import java.util.*
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_personal.*
+import java.text.SimpleDateFormat
 
 
 class PersonalActivity : AppCompatActivity() {
@@ -141,7 +142,29 @@ class PersonalActivity : AppCompatActivity() {
         val weight:Int = Integer.parseInt(et_weight!!.text.toString())
         val height =Integer.parseInt( et_height!!.text.toString())
         val bmi : Double  = (weight / (height*height/10000)).toDouble()
-        val account =User2(avatar,nick,birthday,height,weight,bmi,genderText)
+        // Age Calculator
+        var sdf = SimpleDateFormat("yyyy-M-dd")
+        var currentDate = sdf.format(Date())
+        var now = currentDate.split("-")
+        var bir = birthday.split("-")
+
+        var age:Int = (now[0].toInt()) - (bir[0].toInt())
+        if(now[1].toInt() >= bir[1].toInt())
+        {
+
+            if(now[2].toInt() >= bir[2].toInt())
+            {
+                // Do Nothing
+            }
+            else{
+                age -= 1
+            }
+        }
+        else{
+            age -= 1
+        }
+        // End Line Above
+        val account =User2(avatar,nick,birthday,height,weight,bmi,genderText,age)
         FirebaseFirestore.getInstance().collection("Users").document(uid).set(account, SetOptions.merge())
     }
 
@@ -167,7 +190,7 @@ class PersonalActivity : AppCompatActivity() {
                 .into(avatarView)
             uploadButton.alpha = 0f
         }
-
+        avatarRef.isSuccessful
         FirebaseFirestore.getInstance().collection("Users").whereEqualTo("uid",uid).get().addOnSuccessListener {
             it.forEach {
                 et_nick.apply{

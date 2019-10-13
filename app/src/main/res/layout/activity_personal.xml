@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_green_light">
@@ -37,7 +38,8 @@
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_text"
         android:ems="10"
@@ -47,38 +49,38 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvNickname"
-        app:layout_constraintTop_toBottomOf="@+id/uploadButton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvNickname"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="200dp"
         android:background="@drawable/rounded_select_photo_button"
         android:gravity="center"
         android:text="@string/tvNickname"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uploadButton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/et_birthday"
         android:layout_width="200dp"
         android:layout_height="40dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_text"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/hint_birthday"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvBirthday"
-        app:layout_constraintTop_toBottomOf="@+id/et_nickname"
         android:importantForAutofill="no"
-        android:inputType="none" />
+        android:inputType="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvBirthday"
+        app:layout_constraintTop_toBottomOf="@+id/et_nickname" />
 
 
     <TextView
@@ -99,15 +101,15 @@
         android:id="@+id/et_height"
         android:layout_width="200dp"
         android:layout_height="40dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_text"
-        android:hint="@string/hint_height"
         android:gravity="center"
+        android:hint="@string/hint_height"
         android:importantForAutofill="no"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/tvHeight"
         app:layout_constraintTop_toBottomOf="@+id/et_birthday" />
 
@@ -129,8 +131,9 @@
         android:id="@+id/et_weight"
         android:layout_width="200dp"
         android:layout_height="40dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_text"
         android:gravity="center"
         android:hint="@string/hint_weight"
@@ -138,7 +141,7 @@
         android:inputType="number"
         android:keepScreenOn="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toEndOf="@+id/tvWeight"
         app:layout_constraintTop_toBottomOf="@+id/et_height" />
 
@@ -160,11 +163,12 @@
         android:id="@+id/spinnerGender"
         android:layout_width="200dp"
         android:layout_height="40dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toEndOf="@+id/tvGender"
         app:layout_constraintTop_toBottomOf="@+id/et_weight" />
 
@@ -186,12 +190,15 @@
         android:id="@+id/btnPersonSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/rounded_text"
         android:text="@string/btnPersonSend"
         android:textColor="#43974D"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerGender" />
 

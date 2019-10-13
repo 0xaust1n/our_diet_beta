@@ -55,7 +55,8 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.nav_slideshow -> {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.nav_slideshow)
+                    val intent = Intent(this, DataAddingActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.nav_tools -> {
                     findNavController(R.id.nav_host_fragment).navigate(R.id.nav_tools)
@@ -146,7 +147,11 @@ class MainActivity : AppCompatActivity() {
                     .into(avatarImg)
             }.addOnFailureListener {
                 //Do Nothing
+
             }
+            //To use Glide
+            avatarRef.isSuccessful
+            //
             var uid = FirebaseAuth.getInstance().currentUser!!.uid
             var headNick:TextView = headerView.findViewById(R.id.head_name)
             var headEmail:TextView = headerView.findViewById(R.id.head_email)
