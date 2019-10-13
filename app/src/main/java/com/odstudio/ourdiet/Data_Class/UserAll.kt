@@ -1,3 +1,4 @@
+package com.odstudio.ourdiet.Data_Class
 
 
 data class UserAll(
