@@ -4,11 +4,9 @@ import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
-import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -17,14 +15,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.odstudio.ourdiet.Data_Class.User2
-import kotlinx.android.synthetic.main.activity_personal.uploadButton
 import java.util.*
 import com.bumptech.glide.Glide
-import  com.bumptech.glide.request.RequestListener
-import android.graphics.Bitmap
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.target.Target
+import kotlinx.android.synthetic.main.activity_personal.*
+
 
 class PersonalActivity : AppCompatActivity() {
     // Global Declare
@@ -37,15 +31,6 @@ class PersonalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personal)
-        //Global
-        var et_birthday = findViewById<EditText>(R.id.et_birthday)
-        var et_weight = findViewById<EditText>(R.id.et_weight)
-        var et_height = findViewById<EditText>(R.id.et_height)
-        var et_nick = findViewById<EditText>(R.id.et_nickname)
-        var nick = et_nick?.text.toString()
-        var birthday = et_birthday?.text.toString()
-        var weight = et_weight?.text.toString()
-        var height = et_height?.text.toString()
 
         //Gender Spinner Below
         genderOpt = findViewById(R.id.spinnerGender)
@@ -172,9 +157,8 @@ class PersonalActivity : AppCompatActivity() {
         var et_weight = findViewById<EditText>(R.id.et_weight)
         var et_height = findViewById<EditText>(R.id.et_height)
         var et_nick = findViewById<EditText>(R.id.et_nickname)
-
-        var avatarView =
-            findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.uploadView)
+        var et_gender = findViewById<Spinner>(R.id.spinnerGender)
+        var avatarView = findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.uploadView)
         val filename = FirebaseAuth.getInstance().currentUser!!.uid + "_avatar"
         var avatarRef= FirebaseStorage.getInstance().getReference("/images/$filename").downloadUrl.addOnSuccessListener {
             Glide.with(applicationContext)
@@ -198,14 +182,21 @@ class PersonalActivity : AppCompatActivity() {
                 et_height.apply {
                     setText(it.get("height")?.toString() ?: "")
                 }
-                val filename = FirebaseAuth.getInstance().currentUser!!.uid + "_avatar"
-                FirebaseStorage.getInstance().getReference("/images/$filename").downloadUrl.addOnSuccessListener { itUri ->
-
-                }.addOnFailureListener {  exception ->
-
-               }
-
+                et_height.apply {
+                    setText(it.get("height")?.toString() ?: "")
+                }
+                et_gender.apply {
+                    var gender =(it.get("gender")?.toString() ?: "男")
+                    if(gender == "男") {
+                        et_gender.setSelection(0)
+                    }
+                    if(gender == "女"){
+                        et_gender.setSelection(1)
+                    }
+                }
             }
+        }.addOnFailureListener {
+            //Do Nothing
         }
 
 
