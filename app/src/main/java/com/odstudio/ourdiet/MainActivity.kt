@@ -2,6 +2,7 @@ package com.odstudio.ourdiet
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
@@ -76,6 +77,13 @@ class MainActivity : AppCompatActivity() {
         //Update
         updateonHeader()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
     //appbar - toolbar button click
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
@@ -133,14 +141,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     private fun updateonHeader() {
         val navigationView: NavigationView = findViewById(R.id.nav_view)
-        val headerView : View = navigationView.getHeaderView(0)
+        val headerView: View = navigationView.getHeaderView(0)
         val logged = FirebaseAuth.getInstance().currentUser
         if (logged != null) {
-            var avatarImg = headerView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.head_imageView)
+            var avatarImg =
+                headerView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.head_imageView)
             val filename = FirebaseAuth.getInstance().currentUser!!.uid + "_avatar"
-            var avatarRef= FirebaseStorage.getInstance().getReference("/images/$filename").downloadUrl.addOnSuccessListener {
+            var avatarRef = FirebaseStorage.getInstance().getReference("/images/$filename")
+                .downloadUrl.addOnSuccessListener {
                 Glide.with(applicationContext)
                     .asBitmap()
                     .load(it)
@@ -153,20 +164,21 @@ class MainActivity : AppCompatActivity() {
             avatarRef.isSuccessful
             //
             var uid = FirebaseAuth.getInstance().currentUser!!.uid
-            var headNick:TextView = headerView.findViewById(R.id.head_name)
-            var headEmail:TextView = headerView.findViewById(R.id.head_email)
-            FirebaseFirestore.getInstance().collection("Users").whereEqualTo("uid",uid).get().addOnSuccessListener {
-                it.forEach {
-                    headNick.apply{
-                        this.text = (it.get("nick")?.toString() ?: "Unknown Asshole")
+            var headNick: TextView = headerView.findViewById(R.id.head_name)
+            var headEmail: TextView = headerView.findViewById(R.id.head_email)
+            FirebaseFirestore.getInstance().collection("Users").whereEqualTo("uid", uid).get()
+                .addOnSuccessListener {
+                    it.forEach {
+                        headNick.apply {
+                            this.text = (it.get("nick")?.toString() ?: "Unknown Asshole")
+                        }
+                        headEmail.apply {
+                            this.text = (it.get("email")?.toString() ?: "")
+                        }
                     }
-                    headEmail.apply {
-                        this.text = (it.get("email")?.toString() ?: "")
-                    }
+                }.addOnFailureListener {
+                    //Do Nothing
                 }
-            }.addOnFailureListener {
-                //Do Nothing
-            }
         }
     }
 }

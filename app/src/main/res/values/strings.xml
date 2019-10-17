@@ -59,11 +59,15 @@
     <string name="tv_prote">蛋白質</string>
     <string name="tv_fat">脂肪</string>
     <string name="tv_na">鈉</string>
-    <string name="addingdata">加入資料</string>
+    <string name="addingData">加入資料</string>
     <string name="tv_writepersonal">請先填寫個人資料</string>
     <string name="tv_todayhadeat">今日已攝取的大卡為</string>
     <string name="tv_ifyoueatmore">你已超過每日建議攝取</string>
     <string name="tv_personalbmi">你當前的BMI為</string>
-    <string name="tv_recommendcalories">每日建議攝取</string>
-    <string name="tv_whathaveieaten">我的飲食記錄</string>
+    <string name="tv_dailyRecommended">每日建議攝取</string>
+    <string name="tv_recording">我的飲食記錄</string>
+    <string name="addRecording">新增記錄</string>
+    <string name="hint_selectMeal">[選擇一個餐類..]</string>
+    <string name="meal_type">餐類</string>
+    <string name="tv_Serving">份量</string>
 </resources>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light"
+    tools:context=".AddRecordingActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:labelFor="@id/spMeal"
+                android:text="@string/meal_type"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spMeal"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvTime"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_brand"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:labelFor="@id/et_brand"
+                android:text="@string/tv_brand"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTime" />
+
+            <EditText
+                android:id="@+id/et_brand"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="203dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_brand"
+                app:layout_constraintTop_toBottomOf="@+id/spMeal" />
+
+
+            <TextView
+                android:id="@+id/tv_foodName"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:labelFor="@id/et_foodName"
+                android:text="@string/tv_foodName"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_brand" />
+
+            <EditText
+                android:id="@+id/et_foodName"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_foodName"
+                app:layout_constraintTop_toBottomOf="@+id/et_brand" />
+
+            <TextView
+                android:id="@+id/tv_calories"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:labelFor="@id/et_calories"
+                android:text="@string/tv_calories"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_foodName" />
+
+            <EditText
+                android:id="@+id/et_calories"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_calories"
+                app:layout_constraintTop_toBottomOf="@+id/et_foodName" />
+
+            <TextView
+                android:id="@+id/tv_cho"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:labelFor="@id/et_cho"
+                android:text="@string/tv_cho"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_calories" />
+
+            <EditText
+                android:id="@+id/et_cho"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_cho"
+                app:layout_constraintTop_toBottomOf="@+id/et_calories" />
+
+            <TextView
+                android:id="@+id/tv_prote"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:labelFor="@id/et_prote"
+                android:text="@string/tv_prote"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_cho" />
+
+            <EditText
+                android:id="@+id/et_prote"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_prote"
+                app:layout_constraintTop_toBottomOf="@+id/et_cho" />
+
+            <TextView
+                android:id="@+id/tv_fat"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:labelFor="@id/et_fat"
+                android:text="@string/tv_fat"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_prote" />
+
+            <EditText
+                android:id="@+id/et_fat"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_fat"
+                app:layout_constraintTop_toBottomOf="@+id/et_prote" />
+
+            <TextView
+                android:id="@+id/tv_na"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:labelFor="@id/et_na"
+                android:text="@string/tv_na"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fat" />
+
+            <TextView
+                android:id="@+id/tv_Serving"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:labelFor="@id/et_Serving"
+                android:text="@string/tv_Serving"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_na" />
+
+            <EditText
+                android:id="@+id/et_na"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_fat"
+                app:layout_constraintTop_toBottomOf="@+id/et_fat" />
+
+            <EditText
+                android:id="@+id/et_Serving"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:text="1"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_Serving"
+                app:layout_constraintTop_toBottomOf="@+id/et_na" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_send"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:backgroundTint="#000000"
+        android:text="@string/btnPersonSend"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
