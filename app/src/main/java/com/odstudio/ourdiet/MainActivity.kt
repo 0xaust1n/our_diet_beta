@@ -60,7 +60,8 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.nav_tools -> {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.nav_tools)
+                    val intent = Intent(this, RecordingActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.nav_share -> {
                     findNavController(R.id.nav_host_fragment).navigate(R.id.nav_share)

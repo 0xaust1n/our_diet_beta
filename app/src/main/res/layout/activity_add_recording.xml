@@ -84,6 +84,38 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_brand"
                 app:layout_constraintTop_toBottomOf="@+id/spMeal" />
 
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:labelFor="@id/et_brand"
+                android:text="@string/tv_brand"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_brand" />
+
+            <EditText
+                android:id="@+id/et_date"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="203dp"
+                android:background="@drawable/rounded_text"
+                android:gravity="center"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_date"
+                app:layout_constraintTop_toBottomOf="@+id/et_brand" />
 
             <TextView
                 android:id="@+id/tv_foodName"
@@ -93,12 +125,12 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/rounded_text"
                 android:gravity="center"
-                android:labelFor="@id/et_foodName"
-                android:text="@string/tv_foodName"
+                android:labelFor="@id/et_date"
+                android:text="@string/tv_date"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_brand" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_date" />
 
             <EditText
                 android:id="@+id/et_foodName"
@@ -114,8 +146,9 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/tv_foodName"
-                app:layout_constraintTop_toBottomOf="@+id/et_brand" />
+                app:layout_constraintTop_toBottomOf="@+id/et_date" />
 
             <TextView
                 android:id="@+id/tv_calories"
@@ -320,7 +353,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/btn_send"
+        android:id="@+id/btn_sendData"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#000000"
