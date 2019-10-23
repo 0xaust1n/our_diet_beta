@@ -172,6 +172,10 @@ class MainActivity : AppCompatActivity() {
                     it.forEach {
                         headNick.apply {
                             this.text = (it.get("nick")?.toString() ?: "Unknown Asshole")
+                            if(this.text == "Unknown Asshole")
+                            {
+                                goPersonal()
+                            }
                         }
                         headEmail.apply {
                             this.text = (it.get("email")?.toString() ?: "")
@@ -181,5 +185,9 @@ class MainActivity : AppCompatActivity() {
                     //Do Nothing
                 }
         }
+    }
+    private  fun goPersonal(){
+        val intent = Intent(this, PersonalActivity::class.java)
+        startActivity(intent)
     }
 }
