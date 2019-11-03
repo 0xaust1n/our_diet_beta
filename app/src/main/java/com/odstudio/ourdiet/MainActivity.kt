@@ -103,6 +103,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home -> {
                     findNavController(R.id.nav_host_fragment).navigate(R.id.nav_home)
                 }
+                R.id.navigation_food -> {
+                    findNavController(R.id.nav_host_fragment).navigate(R.id.nav_food)
+                }
                 R.id.navigation_groups -> {
                     findNavController(R.id.nav_host_fragment).navigate(R.id.nav_groups)
                 }

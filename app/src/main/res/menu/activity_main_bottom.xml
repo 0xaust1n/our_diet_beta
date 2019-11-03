@@ -7,6 +7,10 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
     <item
+        android:id="@+id/navigation_food"
+        android:icon="@drawable/restaurant"
+        android:title="@string/title_food" />
+    <item
         android:id="@+id/navigation_friends"
         android:icon="@drawable/ic_public_black_24dp"
         android:title="@string/title_friends" />

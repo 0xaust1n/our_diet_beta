@@ -13,9 +13,11 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="title_home">Home</string>
+    <string name="title_food">Food</string>
     <string name="title_groups">Groups</string>
     <string name="title_friends">Friends</string>
     <string name="home">Home</string>
+    <string name="food">Food</string>
     <string name="groups">Groups</string>
     <string name="friends">Friends</string>
 
@@ -71,4 +73,9 @@
     <string name="meal_type">餐類</string>
     <string name="tv_Serving">份量</string>
     <string name="tv_date">日期</string>
+    <string name="hint_todaydate">請選擇日期</string>
+    <string name="breakfast">早餐</string>
+    <string name="lunch">午餐</string>
+    <string name="dinner">晚餐</string>
+    <string name="snack">點心</string>
 </resources>

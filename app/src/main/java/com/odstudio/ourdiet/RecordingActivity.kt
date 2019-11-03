@@ -12,7 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.mancj.materialsearchbar.MaterialSearchBar
 
 class RecordingActivity : AppCompatActivity() {
-    private  var food = ArrayList<String>()
+    private var food = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recording)
@@ -42,7 +42,7 @@ class RecordingActivity : AppCompatActivity() {
         lv.onItemClickListener = object : AdapterView.OnItemClickListener {
             override fun onItemClick(adapterView: AdapterView<*>, view: View, i: Int, l: Long) {
                 val intent = Intent(this@RecordingActivity, AddRecordingActivity::class.java)
-                intent.putExtra("Select",adapter.getItem(i)!!.toString())
+                intent.putExtra("Select", adapter.getItem(i)!!.toString())
                 startActivity(intent)
             }
         }
@@ -50,21 +50,25 @@ class RecordingActivity : AppCompatActivity() {
         //End OF THE CODE
 
     }
-    private fun databasePush() {}
-    var TAG = "Database Ref"
-    var db = FirebaseFirestore.getInstance()
-    var docRef = db.collection("FoodList").whereEqualTo("brand", "養樂多").get().addOnSuccessListener{ reslut ->
-        for(document in reslut){
-            food.add(document.get("foodName").toString())
-        }
-    } .addOnFailureListener { exception ->
-        Log.d(TAG, "Error getting documents: ", exception)
-    }
-    var docRef2 = db.collection("FoodList").whereEqualTo("brand", "麥當勞").get().addOnSuccessListener{ reslut ->
-        for(document in reslut){
-            food.add(document.get("foodName").toString())
-        }
-    } .addOnFailureListener { exception ->
-        Log.d(TAG, "Error getting documents: ", exception)
+
+    private fun databasePush() {
+        var TAG = "Database Ref"
+        var db = FirebaseFirestore.getInstance()
+        var docRef = db.collection("FoodList").whereEqualTo("brand", "養樂多").get()
+            .addOnSuccessListener { reslut ->
+                for (document in reslut) {
+                    food.add(document.get("foodName").toString())
+                }
+            }.addOnFailureListener { exception ->
+                Log.d(TAG, "Error getting documents: ", exception)
+            }
+        var docRef2 = db.collection("FoodList").whereEqualTo("brand", "麥當勞").get()
+            .addOnSuccessListener { reslut ->
+                for (document in reslut) {
+                    food.add(document.get("foodName").toString())
+                }
+            }.addOnFailureListener { exception ->
+                Log.d(TAG, "Error getting documents: ", exception)
+            }
     }
 }
