@@ -2,6 +2,7 @@ package com.odstudio.ourdiet
 
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.odstudio.ourdiet.Data_Class.AddFoodList
+import com.odstudio.ourdiet.ui.food.FoodFragment
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -32,6 +34,8 @@ class AddRecordingActivity : AppCompatActivity() {
         var btnSend = findViewById<Button>(R.id.btn_sendData)
         btnSend.setOnClickListener {
             addData()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
     }
@@ -146,7 +150,7 @@ class AddRecordingActivity : AppCompatActivity() {
     private fun sp() {
 
         var mealOpt = findViewById<Spinner>(R.id.spMeal)
-        val optionMeal = arrayListOf("早餐", "午餐", "晚餐", "小食/其他")
+        val optionMeal = arrayListOf("早餐", "午餐", "晚餐", "其他")
         mealOpt.adapter = ArrayAdapter<String>(this, R.layout.spinner_layout, optionMeal)
         mealOpt.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {

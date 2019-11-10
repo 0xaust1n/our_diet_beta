@@ -52,7 +52,7 @@ class RecordingActivity : AppCompatActivity() {
     }
 
     private fun databasePush() {
-        var TAG = "Database Ref"
+        var tag = "Database Ref"
         var db = FirebaseFirestore.getInstance()
         var docRef = db.collection("FoodList").whereEqualTo("brand", "養樂多").get()
             .addOnSuccessListener { reslut ->
@@ -60,7 +60,7 @@ class RecordingActivity : AppCompatActivity() {
                     food.add(document.get("foodName").toString())
                 }
             }.addOnFailureListener { exception ->
-                Log.d(TAG, "Error getting documents: ", exception)
+                Log.d(tag, "Error getting documents: ", exception)
             }
         var docRef2 = db.collection("FoodList").whereEqualTo("brand", "麥當勞").get()
             .addOnSuccessListener { reslut ->
@@ -68,7 +68,10 @@ class RecordingActivity : AppCompatActivity() {
                     food.add(document.get("foodName").toString())
                 }
             }.addOnFailureListener { exception ->
-                Log.d(TAG, "Error getting documents: ", exception)
+                Log.d(tag, "Error getting documents: ", exception)
+
             }
+        docRef.isComplete
+        docRef2.isComplete
     }
 }

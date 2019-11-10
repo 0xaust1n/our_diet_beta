@@ -15,15 +15,15 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.odstudio.ourdiet.R
 import com.odstudio.ourdiet.RecordingActivity
-import kotlinx.android.synthetic.main.fragment_food.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class FoodFragment : Fragment() {
 
-    private var food = ArrayList<String>()
+    private var titleList: List<String>? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,15 +37,15 @@ class FoodFragment : Fragment() {
         dateText.setText(currentDate)
         //Date Edit Text
         val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
+        val y = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
         val dpd = DatePickerDialog(
             activity,
-            DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
                 dateText.setText("" + year + "/" + (monthOfYear + 1) + "/" + dayOfMonth)
             },
-            year,
+            y,
             month,
             day
         )
@@ -54,86 +54,107 @@ class FoodFragment : Fragment() {
         dateText.setOnClickListener {
             dpd.show()
         }
-
-        var db = FirebaseFirestore.getInstance()
-        var TAG = "Database Ref"
-        var uid = FirebaseAuth.getInstance().currentUser!!.uid
         var elv = root.findViewById<ExpandableListView>(R.id.elv_meal)
+        var db = FirebaseFirestore.getInstance()
+        var tag = "Database Ref"
+        var uid = FirebaseAuth.getInstance().currentUser!!.uid
         var date = dateText.text.toString()
-        val meal = listOf("早餐", "午餐", "晚餐", "小食/其他")
-        var food = listOf(
-            listOf(
-                db.collection("RecordOf$uid").whereEqualTo("date", date).whereGreaterThan(
-                    "meal",
-                    "早餐"
-                ).get().addOnSuccessListener { reslut ->
-                    for (document in reslut) {
-                        food.add(document.get("foodName").toString())
-                    }
-                }.addOnFailureListener { exception ->
-                    Log.d(
-                        TAG,
-                        "Error getting documents: ",
-                        exception
-                    )
-                }),
-            listOf(
-                db.collection("RecordOf$uid").whereEqualTo("date", date).whereGreaterThan(
-                    "meal",
-                    "午餐"
-                ).get().addOnSuccessListener { reslut ->
-                    for (document in reslut) {
-                        food.add(document.get("foodName").toString())
-                    }
-                }.addOnFailureListener { exception ->
-                    Log.d(
-                        TAG,
-                        "Error getting documents: ",
-                        exception
-                    )
-                }),
-            listOf(
-                db.collection("RecordOf$uid").whereEqualTo("date", date).whereGreaterThan(
-                    "meal",
-                    "晚餐"
-                ).get().addOnSuccessListener { reslut ->
-                    for (document in reslut) {
-                        food.add(document.get("foodName").toString())
-                    }
-                }.addOnFailureListener { exception ->
-                    Log.d(
-                        TAG,
-                        "Error getting documents: ",
-                        exception
-                    )
-                }),
-            listOf(
-                db.collection("RecordOf$uid").whereEqualTo("date", date).whereGreaterThan(
-                    "meal",
-                    "小食/其他"
-                ).get().addOnSuccessListener { reslut ->
-                    for (document in reslut) {
-                        food.add(document.get("foodName").toString())
-                    }
-                }.addOnFailureListener { exception ->
-                    Log.d(
-                        TAG,
-                        "Error getting documents: ",
-                        exception
-                    )
-                }
-            )
-        )
-        val adapter = FoodAdapter(activity, meal, food)
-        elv.setAdapter(adapter)
+        val meal = listOf("早餐", "午餐", "晚餐", "其他")
+        // Read Data
+        //Breakfast
+        var list4Breakfast = ArrayList<String>()
+        db.collection("RecordOf$uid").document(date).collection("早餐").get()
+            .addOnSuccessListener { reslut ->
+                for (document in reslut) {
+                    list4Breakfast.add(document.get("foodName").toString())
+                    list4Breakfast.add(document.get("brand").toString())
+                    list4Breakfast.add(document.get("calories").toString())
+                    list4Breakfast.add(document.get("serving").toString())
 
-        var btn_addrecord = root.findViewById<Button>(R.id.btn_addfood)
-        btn_addrecord.setOnClickListener {
+
+                }
+            }.addOnFailureListener { exception ->
+                Log.d(
+                    tag,
+                    "Error getting documents: ",
+                    exception
+                )
+            }
+        //Lunch
+        var list4Lunch = ArrayList<String>()
+        db.collection("RecordOf$uid").document(date).collection("午餐").get()
+            .addOnSuccessListener { reslut ->
+                for (document in reslut) {
+                    list4Lunch.add(document.get("foodName").toString())
+                    list4Lunch.add(document.get("brand").toString())
+                    list4Lunch.add(document.get("calories").toString())
+                    list4Lunch.add(document.get("serving").toString())
+                }
+            }.addOnFailureListener { exception ->
+                Log.d(
+                    tag,
+                    "Error getting documents: ",
+                    exception
+                )
+            }
+        //Dinner
+        var list4Dinner = ArrayList<String>()
+        db.collection("RecordOf$uid").document(date).collection("晚餐").get()
+            .addOnSuccessListener { reslut ->
+                for (document in reslut) {
+                    list4Dinner.add(document.get("foodName").toString())
+                    list4Dinner.add(document.get("brand").toString())
+                    list4Dinner.add(document.get("calories").toString())
+                    list4Dinner.add(document.get("serving").toString())
+                }
+            }.addOnFailureListener { exception ->
+                Log.d(
+                    tag,
+                    "Error getting documents: ",
+                    exception
+                )
+            }
+        //Other
+        var list4Other = ArrayList<String>()
+        db.collection("RecordOf$uid").document(date).collection("其他").get()
+            .addOnSuccessListener { reslut ->
+                for (document in reslut) {
+                    list4Other.add(document.get("foodName").toString())
+                    list4Other.add(document.get("brand").toString())
+                    list4Other.add(document.get("calories").toString())
+                    list4Other.add(document.get("serving").toString())
+                }
+            }.addOnFailureListener { exception ->
+                Log.d(
+                    tag,
+                    "Error getting documents: ",
+                    exception
+                )
+            }
+        var food = listOf(
+            list4Breakfast,
+            list4Lunch,
+            list4Dinner,
+            list4Other
+        )
+        val adapter = FoodAdapter(
+            activity,
+            meal,
+            list4Breakfast,
+            list4Lunch,
+            list4Dinner,
+            list4Other,
+            food
+        )
+        elv.setAdapter(adapter)
+        var btnAdd = root.findViewById<Button>(R.id.btn_addfood)
+        btnAdd.setOnClickListener {
             val intent = Intent(activity, RecordingActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
 
         return root
     }
+
 }
+
