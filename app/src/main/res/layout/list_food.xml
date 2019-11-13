@@ -7,16 +7,16 @@
 
     <TextView
         android:id="@+id/foodName"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="foodName"
+        android:textColor="@android:color/black"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="94dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/brand"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
-        android:text="TextView"
+        android:text="brand"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
-        android:text="TextView"
+        android:text="calories"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
-        android:text="TextView"
+        android:text="serving"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
