@@ -85,8 +85,8 @@ class FoodFragment : Fragment() {
         )
         var child = listOf(
             child4Breakfast,
-            child4Dinner,
             child4Lunch,
+            child4Dinner,
             child4Other
         )
         val adapter = FoodAdapter(

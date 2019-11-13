@@ -5,18 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_green_light" >
-
     <TextView
-        android:id="@+id/eattoomore"
+        android:id="@+id/todaydate"
         android:layout_width="0dp"
         android:layout_height="75dp"
+        android:gravity="center"
         android:text=""
+        android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recommendcalories" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/userbmiage"
@@ -47,7 +48,19 @@
         app:layout_constraintTop_toBottomOf="@+id/userbmiage" />
 
     <TextView
-        android:id="@+id/todaydate"
+        android:id="@+id/eattoomore"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:text=""
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recommendcalories" />
+
+    <TextView
+        android:id="@+id/caloriesOfToday"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:gravity="center"
@@ -55,8 +68,9 @@
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/recommendcalories" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

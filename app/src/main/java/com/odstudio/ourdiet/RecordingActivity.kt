@@ -54,24 +54,22 @@ class RecordingActivity : AppCompatActivity() {
     private fun databasePush() {
         var tag = "Database Ref"
         var db = FirebaseFirestore.getInstance()
-        var docRef = db.collection("FoodList").whereEqualTo("brand", "養樂多").get()
-            .addOnSuccessListener { reslut ->
-                for (document in reslut) {
+        db.collection("FoodList").whereEqualTo("brand", "養樂多").get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
                     food.add(document.get("foodName").toString())
                 }
             }.addOnFailureListener { exception ->
                 Log.d(tag, "Error getting documents: ", exception)
             }
-        var docRef2 = db.collection("FoodList").whereEqualTo("brand", "麥當勞").get()
-            .addOnSuccessListener { reslut ->
-                for (document in reslut) {
+        db.collection("FoodList").whereEqualTo("brand", "麥當勞").get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
                     food.add(document.get("foodName").toString())
                 }
             }.addOnFailureListener { exception ->
                 Log.d(tag, "Error getting documents: ", exception)
 
             }
-        docRef.isComplete
-        docRef2.isComplete
     }
 }
