@@ -39,13 +39,12 @@ class RecordingActivity : AppCompatActivity() {
             }
         })
 
-        lv.onItemClickListener = object : AdapterView.OnItemClickListener {
-            override fun onItemClick(adapterView: AdapterView<*>, view: View, i: Int, l: Long) {
+        lv.onItemClickListener =
+            AdapterView.OnItemClickListener { adapterView, view, i, l ->
                 val intent = Intent(this@RecordingActivity, AddRecordingActivity::class.java)
                 intent.putExtra("Select", adapter.getItem(i)!!.toString())
                 startActivity(intent)
             }
-        }
 
         //End OF THE CODE
 
