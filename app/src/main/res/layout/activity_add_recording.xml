@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#46D64D"
-    tools:context=".AddRecordingActivity">
-
+    tools:context=".AddRecordingActivity"
+    android:background="@android:color/holo_green_light">
 
     <ScrollView
         android:layout_width="match_parent"

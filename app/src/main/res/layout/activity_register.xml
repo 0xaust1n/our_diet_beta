@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+
+
     <ImageView
         android:id="@+id/banner"
         android:layout_width="wrap_content"
@@ -87,9 +89,9 @@
         android:id="@+id/btnRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#8FD577"
+        android:backgroundTint="#000"
         android:text="@string/btnRegister"
-        android:textColor="#16421C"
+        android:textColor="#FFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
