@@ -73,7 +73,7 @@
         tools:targetApi="o" />
 
     <TextView
-        android:id="@+id/gotaccount"
+        android:id="@+id/gotAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
     <TextView
-        android:id="@+id/forgotpassword"
+        android:id="@+id/forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -97,13 +97,13 @@
         android:layout_marginEnd="8dp"
         android:clickable="true"
         android:focusable="true"
-        android:text="@string/forgotpassword"
+        android:text="@string/forgotPassword"
         android:textColor="#4CAF50"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gotaccount" />
+        app:layout_constraintTop_toBottomOf="@+id/gotAccount" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

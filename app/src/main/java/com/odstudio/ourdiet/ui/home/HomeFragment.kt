@@ -2,7 +2,6 @@ package com.odstudio.ourdiet.ui.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,10 +37,10 @@ class HomeFragment : Fragment() {
         now[0] = now[0] + "年"
         now[1] = now[1] + "月"
         now[2] = now[2] + "日"
-        var todayDate = root.findViewById<TextView>(R.id.todaydate)
+        var todayDate = root.findViewById<TextView>(R.id.dateTime)
         todayDate.text = "今天是" + now[0] + now[1] + now[2]
-        var userInfo = root.findViewById<TextView>(R.id.userbmiage)
-        var recommend = root.findViewById<TextView>(R.id.recommendcalories)
+        var userInfo = root.findViewById<TextView>(R.id.userBmiAge)
+        var recommend = root.findViewById<TextView>(R.id.recommend)
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         if( uid == null)
         {

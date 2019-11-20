@@ -6,7 +6,7 @@
     android:background="@android:color/holo_green_light">
 
     <TextView
-        android:id="@+id/todaydate"
+        android:id="@+id/dateTime"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:gravity="center"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/userbmiage"
+        android:id="@+id/userBmiAge"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:gravity="center"
@@ -31,10 +31,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/todaydate" />
+        app:layout_constraintTop_toBottomOf="@+id/dateTime" />
 
     <TextView
-        android:id="@+id/recommendcalories"
+        android:id="@+id/recommend"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:gravity="center"
@@ -45,10 +45,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userbmiage" />
+        app:layout_constraintTop_toBottomOf="@+id/userBmiAge" />
 
     <TextView
-        android:id="@+id/eattoomore"
+        android:id="@+id/overEat"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:text=""
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recommendcalories" />
+        app:layout_constraintTop_toBottomOf="@+id/recommend" />
 
     <TextView
         android:id="@+id/caloriesOfToday"
@@ -71,6 +71,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recommendcalories" />
+        app:layout_constraintTop_toBottomOf="@+id/recommend" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

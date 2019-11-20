@@ -34,11 +34,11 @@ class LoginActivity : AppCompatActivity() {
         initialise()
     }
     private fun initialise() {
-        tvForgotPassword = findViewById<android.view.View>(R.id.forgotpassword) as TextView
+        tvForgotPassword = findViewById<android.view.View>(R.id.forgotPassword) as TextView
         etEmail = findViewById<android.view.View>(R.id.et_email) as EditText
         etPassword = findViewById<android.view.View>(R.id.et_password) as EditText
         btnLogin = findViewById<android.view.View>(R.id.send_btn) as Button
-        tvCreateAccount = findViewById<android.view.View>(R.id.gotaccount) as TextView
+        tvCreateAccount = findViewById<android.view.View>(R.id.gotAccount) as TextView
         mAuth = FirebaseAuth.getInstance()
         tvForgotPassword!!
             .setOnClickListener { startActivity(Intent(this@LoginActivity,

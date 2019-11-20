@@ -41,7 +41,7 @@
     <string name="password">Password</string>
     <string name="login_title">Login</string>
     <string name="create_act">Create Account</string>
-    <string name="forgotpassword">忘記密碼</string>
+    <string name="forgotPassword">忘記密碼</string>
     <string name="UploadIMG">上傳頭像</string>
     <string name="hint_nickname">請輸入暱稱</string>
     <string name="hint_birthday">請輸入生日</string>
@@ -49,7 +49,7 @@
     <string name="communicate">Communicate</string>
     <string name="tvNickname">暱稱</string>
     <string name="tvBirthday">生日</string>
-    <string name="tvHight">身高</string>
+    <string name="tvHeight">身高</string>
     <string name="tvWeight">體重</string>
     <string name="tvGender">性別</string>
     <string name="btnPersonSend">送出</string>
@@ -62,10 +62,6 @@
     <string name="tv_fat">脂肪</string>
     <string name="tv_na">鈉</string>
     <string name="addingData">加入資料</string>
-    <string name="tv_writepersonal">請先填寫個人資料</string>
-    <string name="tv_todayhadeat">今日已攝取的大卡為</string>
-    <string name="tv_ifyoueatmore">你已超過每日建議攝取</string>
-    <string name="tv_personalbmi">你當前的BMI為</string>
     <string name="tv_dailyRecommended">每日建議攝取</string>
     <string name="tv_recording">我的飲食記錄</string>
     <string name="addRecording">新增記錄</string>
@@ -73,12 +69,14 @@
     <string name="meal_type">餐類</string>
     <string name="tv_Serving">份量</string>
     <string name="tv_date">日期</string>
-    <string name="hint_todaydate">請選擇日期</string>
+    <string name="hint_dateTime">請選擇日期</string>
     <string name="breakfast">早餐</string>
     <string name="lunch">午餐</string>
     <string name="dinner">晚餐</string>
     <string name="snack">點心</string>
-    <string name="btn_addfood">新增紀錄</string>
+    <string name="btn_addFood">新增紀錄</string>
     <string name="defaultNumber">1</string>
     <string name="menu_addFriend">加入好友</string>
+    <string name="et_friendMail">請輸入好友的郵箱</string>
+    <string name="searchButton">searchButton</string>
 </resources>

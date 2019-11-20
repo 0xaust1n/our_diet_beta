@@ -43,13 +43,13 @@ class FoodFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_food, container, false)
         //Add Button
-        var btnAdd = root.findViewById<Button>(R.id.btn_addfood)
+        var btnAdd = root.findViewById<Button>(R.id.btn_addFood)
         btnAdd.setOnClickListener {
             val intent = Intent(activity, RecordingActivity::class.java)
             startActivity(intent)
         }
         //Default The Date
-        val dateText = root.findViewById<EditText>(R.id.et_todaydate)
+        val dateText = root.findViewById<EditText>(R.id.et_dateTime)
         var sdf = SimpleDateFormat("yyyy-M-dd")
         var currentDate = sdf.format(Date())
         dateText.setText(currentDate)

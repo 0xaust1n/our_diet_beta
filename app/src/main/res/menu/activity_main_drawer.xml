@@ -14,7 +14,9 @@
             android:title="@string/menu_addFriend" />
 
     </group>
+    <item android:title="@string/communicate">
         <menu>
+
             <item
                 android:id="@+id/nav_addData"
                 android:icon="@drawable/ic_assessment_black_24dp"
@@ -29,5 +31,5 @@
                 android:title="@string/logout" />
         </menu>
 
-
+    </item>
 </menu>
