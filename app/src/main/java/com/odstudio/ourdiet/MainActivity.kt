@@ -55,16 +55,17 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, PersonalActivity::class.java)
                     startActivity(intent)
                 }
-                R.id.nav_slideshow -> {
+                R.id.nav_addFriend ->{
+                    val intent = Intent(this, AddFriendActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.nav_addData -> {
                     val intent = Intent(this, DataAddingActivity::class.java)
                     startActivity(intent)
                 }
                 R.id.nav_tools -> {
                     val intent = Intent(this, RecordingActivity::class.java)
                     startActivity(intent)
-                }
-                R.id.nav_share -> {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.nav_share)
                 }
                 R.id.nav_logout -> {
                     logout()
@@ -76,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         val bottomNavView: BottomNavigationView = findViewById(R.id.navigation)
         bottomNavView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         //Update
-        updateonHeader()
+        updateOnHeader()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -106,9 +107,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_food -> {
                     findNavController(R.id.nav_host_fragment).navigate(R.id.nav_food)
                 }
-                R.id.navigation_groups -> {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.nav_groups)
-                }
                 R.id.navigation_friends -> {
                     findNavController(R.id.nav_host_fragment).navigate(R.id.nav_friends)
                 }
@@ -124,7 +122,6 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, LoginActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(intent)
-
             }
     }
 
@@ -146,7 +143,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun updateonHeader() {
+    private fun updateOnHeader() {
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         val headerView: View = navigationView.getHeaderView(0)
         val logged = FirebaseAuth.getInstance().currentUser
@@ -174,11 +171,11 @@ class MainActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     it.forEach {
                         headNick.apply {
-                            this.text = (it.get("nick")?.toString() ?: "Unknown Asshole")
-                            if(this.text == "Unknown Asshole")
+                            this.text = (it.get("nick")?.toString() ?: "Unknown User")
+                            if(this.text == "Unknown User")
                             {
                                 goPersonal()
-                            }
+                            }   
                         }
                         headEmail.apply {
                             this.text = (it.get("email")?.toString() ?: "")

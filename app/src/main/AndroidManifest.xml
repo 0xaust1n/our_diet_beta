@@ -12,12 +12,13 @@
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddRecordingActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".AddFriendActivity"></activity>
+        <activity
+            android:name=".AddRecordingActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RecordingActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".DataAddingActivity"
             android:theme="@style/AppTheme.NoActionBar" />

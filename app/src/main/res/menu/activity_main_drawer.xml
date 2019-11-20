@@ -9,26 +9,25 @@
             android:icon="@drawable/ic_person_black_24dp"
             android:title="@string/menu_personal" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/addingData" />
-    </group>
+            android:id="@+id/nav_addFriend"
+            android:icon="@drawable/baseline_person_add_black_24dp"
+            android:title="@string/menu_addFriend" />
 
-    <item android:title="@string/communicate">
+    </group>
         <menu>
             <item
-                android:id="@+id/nav_tools"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="@string/menu_tools" />
+                android:id="@+id/nav_addData"
+                android:icon="@drawable/ic_assessment_black_24dp"
+                android:title="@string/addingData" />
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
+                android:id="@+id/nav_tools"
+                android:icon="@drawable/ic_book_black_24dp"
+                android:title="@string/menu_tools" />
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/baseline_input_black_24dp"
                 android:title="@string/logout" />
         </menu>
-    </item>
+
 
 </menu>

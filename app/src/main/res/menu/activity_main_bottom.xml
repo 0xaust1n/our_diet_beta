@@ -12,10 +12,6 @@
         android:title="@string/title_food" />
     <item
         android:id="@+id/navigation_friends"
-        android:icon="@drawable/ic_public_black_24dp"
-        android:title="@string/title_friends" />
-    <item
-        android:id="@+id/navigation_groups"
         android:icon="@drawable/ic_group_black_24dp"
-        android:title="@string/title_groups" />
+        android:title="@string/title_friends" />
 </menu>
