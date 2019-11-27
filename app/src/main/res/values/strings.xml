@@ -79,4 +79,7 @@
     <string name="menu_addFriend">加入好友</string>
     <string name="et_friendMail">請輸入好友的郵箱</string>
     <string name="searchButton">searchButton</string>
+    <string name="Accept">接受</string>
+    <string name="reject">拒絕</string>
+    <string name="Applying">申請中...</string>
 </resources>

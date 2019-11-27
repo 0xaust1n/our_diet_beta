@@ -1,4 +1,4 @@
-package com.odstudio.ourdiet.Data_Class
+package com.odstudio.ourdiet.dataClass
 
 data class FoodList(val brand:String?= null,
                     val foodName:String?= null,

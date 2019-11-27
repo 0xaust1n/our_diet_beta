@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
-import com.odstudio.ourdiet.Data_Class.FoodList
+import com.odstudio.ourdiet.dataClass.FoodList
 
 class DataAddingActivity : AppCompatActivity() {
 

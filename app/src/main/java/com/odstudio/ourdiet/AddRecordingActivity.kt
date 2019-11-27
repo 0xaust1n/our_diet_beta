@@ -11,8 +11,7 @@ import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import com.odstudio.ourdiet.Data_Class.AddFoodList
-import com.odstudio.ourdiet.ui.food.FoodFragment
+import com.odstudio.ourdiet.dataClass.AddFoodList
 import java.text.SimpleDateFormat
 import java.util.*
 
