@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener { menuItem ->
             // set item as selected to persist highlight
-            menuItem.isChecked = false
+            menuItem.isChecked = true
             // close drawer when item is tapped
             mDrawerLayout.closeDrawers()
 
@@ -61,10 +61,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_addData -> {
                     val intent = Intent(this, DataAddingActivity::class.java)
-                    startActivity(intent)
-                }
-                R.id.nav_tools -> {
-                    val intent = Intent(this, RecordingActivity::class.java)
                     startActivity(intent)
                 }
                 R.id.nav_logout -> {
@@ -87,7 +83,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     //appbar - toolbar button click
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
@@ -150,14 +145,13 @@ class MainActivity : AppCompatActivity() {
         val logged = FirebaseAuth.getInstance().currentUser
         if (logged != null) {
             var avatarImg =
-                headerView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.avatar)
+                headerView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.head_imageView)
             val filename = FirebaseAuth.getInstance().currentUser!!.uid + "_avatar"
             var avatarRef = FirebaseStorage.getInstance().getReference("/images/$filename")
                 .downloadUrl.addOnSuccessListener {
                 Glide.with(applicationContext)
                     .asBitmap()
                     .load(it)
-                    .dontAnimate()
                     .into(avatarImg)
             }.addOnFailureListener {
                 //Do Nothing

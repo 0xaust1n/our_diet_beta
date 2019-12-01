@@ -1,4 +1,4 @@
-package com.odstudio.ourdiet.dataClass
+package com.odstudio.ourdiet.Data_Class
 
 
 

@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
-import com.odstudio.ourdiet.dataClass.User
+import com.odstudio.ourdiet.Data_Class.User
 
 class RegisterActivity : AppCompatActivity() {
     //Below Starting Declare UI elements

@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
-import com.odstudio.ourdiet.dataClass.User2
+import com.odstudio.ourdiet.Data_Class.User2
 import java.util.*
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_personal.*

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RecordingActivity"
-    android:background="#46D64D">
+    android:background="@android:color/holo_green_light">
 
 
     <com.mancj.materialsearchbar.MaterialSearchBar
