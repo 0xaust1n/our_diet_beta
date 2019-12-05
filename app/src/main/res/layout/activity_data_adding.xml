@@ -238,7 +238,7 @@
         android:layout_height="wrap_content"
         android:background="#000000"
         android:backgroundTint="#000000"
-        android:text="@string/btnAddnewfood"
+        android:text="@string/btnAddFood"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

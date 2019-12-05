@@ -82,4 +82,5 @@
     <string name="Accept">接受</string>
     <string name="reject">拒絕</string>
     <string name="applying">申請中...</string>
+    <string name="btnAddFood">新增食物</string>
 </resources>

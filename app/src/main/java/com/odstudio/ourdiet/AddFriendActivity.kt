@@ -22,69 +22,84 @@ class AddFriendActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_friend)
         // Hide the Stuffs
-        var img = findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.avatar)
-        var userName = findViewById<TextView>(R.id.userName)
+        var avatar = findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.avatar)
+        var searchingNick = findViewById<TextView>(R.id.userName)
         var btnAdd = findViewById<Button>(R.id.btnAdd)
-        img.alpha = 0f
-        userName.alpha = 0f
+        avatar.alpha = 0f
+        searchingNick.alpha = 0f
         btnAdd.alpha = 0f
+        // Current User Info
+        var db = FirebaseFirestore.getInstance()
+        var currentUser = FirebaseAuth.getInstance().currentUser!!.uid
+        var currentAvatar = currentUser + "_avatar"
+        var currentNick =""
+        var currentEmail =""
+        FirebaseFirestore.getInstance().collection("Users").whereEqualTo("uid", currentUser)
+            .get().addOnSuccessListener {
+                it.forEach {
+                    currentNick.apply {
+                        currentNick = it.get("nick")?.toString() ?: ""
+                    }
+                    currentEmail.apply {
+                        currentEmail = it.get("email")?.toString() ?: ""
+                    }
+                }
+            }
         // Button OnClick Function
         var search = findViewById<Button>(R.id.searchBtn)
         var etEmail = findViewById<EditText>(R.id.et_friendMail)
         var searchAble = false
-        var email = ""
+        var searchingMail = ""
         var searchingUid = ""
+        var searchingFilename: String = searchingUid + "_avatar"
         search.setOnClickListener {
 
-            if (etEmail.text.toString() != "") {
-                email = etEmail.text.toString()
+            if (etEmail.text.toString() != "" && etEmail.text.toString() != currentEmail) {
+                searchingMail = etEmail.text.toString()
                 searchAble = true
             }
             if (searchAble) {
-                img.alpha = 1f
-                userName.alpha = 1f
+                avatar.alpha = 1f
+                searchingNick.alpha = 1f
                 btnAdd.alpha = 1f
-                FirebaseFirestore.getInstance().collection("Users").whereEqualTo("email", email)
+                FirebaseFirestore.getInstance().collection("Users").whereEqualTo("email", searchingMail)
                     .get().addOnSuccessListener {
                         it.forEach {
                             searchingUid.apply {
-                                searchingUid = (it.get("uid")?.toString() ?: "")
+                                searchingUid = it.get("uid")?.toString() ?: ""
                             }
-                            userName.apply {
+                            searchingNick.apply {
                                 text = it.get("nick")?.toString() ?: ""
                             }
                         }
                     }
-                val filename: String = searchingUid + "_avatar"
-                var avatarRef = FirebaseStorage.getInstance().getReference("/images/$filename")
+                var avatarRef = FirebaseStorage.getInstance().getReference("/images/$searchingFilename")
                     .downloadUrl.addOnSuccessListener {
                     Glide.with(applicationContext)
                         .asBitmap()
                         .load(it)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .dontAnimate()
-                        .into(img)
+                        .into(avatar)
                 }
                 avatarRef.isSuccessful
             }
             // Search Code above
-            var db = FirebaseFirestore.getInstance()
-            var userUid = FirebaseAuth.getInstance().currentUser!!.uid
             var add = findViewById<Button>(R.id.btnAdd)
             var userStatus = "申請中"
             var friendStatus = "尚未確認"
-            var receiveApply = ReceiveApply(userUid, friendStatus)
-            var sendApply = ApplyFriend(searchingUid, userStatus)
+            var receiveApply = ReceiveApply(currentNick,currentUser,currentAvatar,currentEmail, friendStatus)
+            var sendApply = ApplyFriend(searchingNick.toString(),searchingUid,searchingFilename,searchingMail,userStatus)
             add.setOnClickListener {
                 // Add database for Current User
-                db.collection("FriendsOf$userUid")
+                db.collection("FriendsOf$currentUser")
                     .document(searchingUid).set(
                         sendApply,
                         SetOptions.merge()
                     )
                 // Searching Friend
                 db.collection("FriendsOf$searchingUid")
-                    .document(userUid).set(
+                    .document(currentUser).set(
                         receiveApply,
                         SetOptions.merge()
                     )
