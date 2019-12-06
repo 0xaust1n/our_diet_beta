@@ -21,6 +21,8 @@ class AddRecordingActivity : AppCompatActivity() {
     private lateinit var selection: String
     private lateinit var mealSelection: String
     private lateinit var dateText: EditText
+    private var cal = Calendar.getInstance()
+    private var sdf = SimpleDateFormat("yyyy-M-dd")
     // Staring OnCreate Below
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,7 +97,11 @@ class AddRecordingActivity : AppCompatActivity() {
         dateText.setText(currentDate)
         val dpd = DatePickerDialog(
             this, DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
-                dateText.setText("" + year + "-" + (monthOfYear + 1) + "-" + dayOfMonth)
+                cal.set(Calendar.YEAR, year)
+                cal.set(Calendar.MONTH, monthOfYear)
+                cal.set(Calendar.DAY_OF_MONTH , dayOfMonth)
+
+                dateText.setText(sdf.format(cal.time));
             },
             y,
             month,

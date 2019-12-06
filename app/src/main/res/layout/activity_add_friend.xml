@@ -59,6 +59,7 @@
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_text"
         android:text="@string/menu_addFriend"
         android:textColor="#4CAF50"

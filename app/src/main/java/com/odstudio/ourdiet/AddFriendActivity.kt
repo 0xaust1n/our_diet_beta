@@ -23,10 +23,10 @@ class AddFriendActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_friend)
         // Hide the Stuffs
         var avatar = findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.avatar)
-        var searchingNick = findViewById<TextView>(R.id.userName)
+        var nick = findViewById<TextView>(R.id.userName)
         var btnAdd = findViewById<Button>(R.id.btnAdd)
         avatar.alpha = 0f
-        searchingNick.alpha = 0f
+        nick.alpha = 0f
         btnAdd.alpha = 0f
         // Current User Info
         var db = FirebaseFirestore.getInstance()
@@ -49,9 +49,10 @@ class AddFriendActivity : AppCompatActivity() {
         var search = findViewById<Button>(R.id.searchBtn)
         var etEmail = findViewById<EditText>(R.id.et_friendMail)
         var searchAble = false
-        var searchingMail = ""
+        var searchingMail = etEmail.text.toString()
         var searchingUid = ""
-        var searchingFilename: String = searchingUid + "_avatar"
+        var searchingNIck =""
+        var searchingFilename = ""
         search.setOnClickListener {
 
             if (etEmail.text.toString() != "" && etEmail.text.toString() != currentEmail) {
@@ -60,16 +61,18 @@ class AddFriendActivity : AppCompatActivity() {
             }
             if (searchAble) {
                 avatar.alpha = 1f
-                searchingNick.alpha = 1f
+                nick.alpha = 1f
                 btnAdd.alpha = 1f
                 FirebaseFirestore.getInstance().collection("Users").whereEqualTo("email", searchingMail)
                     .get().addOnSuccessListener {
                         it.forEach {
                             searchingUid.apply {
                                 searchingUid = it.get("uid")?.toString() ?: ""
+                                searchingFilename = searchingUid + "_avatar"
                             }
-                            searchingNick.apply {
+                            nick.apply {
                                 text = it.get("nick")?.toString() ?: ""
+                                searchingNIck = it.get("nick")?.toString() ?: ""
                             }
                         }
                     }
@@ -89,7 +92,7 @@ class AddFriendActivity : AppCompatActivity() {
             var userStatus = "申請中"
             var friendStatus = "尚未確認"
             var receiveApply = ReceiveApply(currentNick,currentUser,currentAvatar,currentEmail, friendStatus)
-            var sendApply = ApplyFriend(searchingNick.toString(),searchingUid,searchingFilename,searchingMail,userStatus)
+            var sendApply = ApplyFriend(searchingNIck,searchingUid,searchingFilename,searchingMail,userStatus)
             add.setOnClickListener {
                 // Add database for Current User
                 db.collection("FriendsOf$currentUser")
