@@ -34,7 +34,9 @@ class FoodFragment : Fragment() {
     private var count4Dinner = 0
     private var child4Other = ArrayList<Int>()
     private var count4Other = 0
-    private lateinit var date: String
+    private var adapter: FoodAdapter?=null
+    private var cal = Calendar.getInstance()
+    private var sdf = SimpleDateFormat("yyyy-M-dd")
     // Start OnCreateView
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,6 +44,7 @@ class FoodFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_food, container, false)
+
         //Add Button
         var btnAdd = root.findViewById<Button>(R.id.btn_addFood)
         btnAdd.setOnClickListener {
@@ -50,7 +53,7 @@ class FoodFragment : Fragment() {
         }
         //Default The Date
         val dateText = root.findViewById<EditText>(R.id.et_dateTime)
-        var sdf = SimpleDateFormat("yyyy-M-dd")
+
         var currentDate = sdf.format(Date())
         dateText.setText(currentDate)
         //Date Edit Text
@@ -61,7 +64,14 @@ class FoodFragment : Fragment() {
         val dpd = DatePickerDialog(
             activity,
             DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
-                dateText.setText("" + year + "/" + (monthOfYear + 1) + "/" + dayOfMonth)
+                cal.set(Calendar.YEAR, year)
+                cal.set(Calendar.MONTH, monthOfYear)
+                cal.set(Calendar.DAY_OF_MONTH , dayOfMonth)
+
+                dateText.setText(sdf.format(cal.time));
+
+                readDate( dateText.text.toString() )
+                adapter?.notifyDataSetChanged()
             },
             y,
             month,
@@ -73,8 +83,8 @@ class FoodFragment : Fragment() {
             dpd.show()
 
         }
-        date = dateText.text.toString()
-        readDate()
+
+        readDate( dateText.text.toString() )
         var elv = root.findViewById<ExpandableListView>(R.id.elv_meal)
         val meal = listOf("早餐", "午餐", "晚餐", "其他")
         var food = listOf(
@@ -89,7 +99,7 @@ class FoodFragment : Fragment() {
             child4Dinner,
             child4Other
         )
-        val adapter = FoodAdapter(
+        adapter = FoodAdapter(
             activity,
             meal,
             food,
@@ -100,12 +110,13 @@ class FoodFragment : Fragment() {
         return root
     }
 
-    private fun readDate() {
+    private fun readDate( foodOfDate : String ) {
         var db = FirebaseFirestore.getInstance()
         var tag = "Database Ref"
         var uid = FirebaseAuth.getInstance().currentUser!!.uid
+        list4Breakfast.clear()
         //Breakfast
-        db.collection("RecordOf$uid").document(date).collection("早餐").get()
+        db.collection("RecordOf$uid").document(foodOfDate).collection("早餐").get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     list4Breakfast.add(document.get("foodName").toString())
@@ -123,8 +134,8 @@ class FoodFragment : Fragment() {
                 )
             }
         //Lunch
-
-        db.collection("RecordOf$uid").document(date).collection("午餐").get()
+        list4Lunch.clear()
+        db.collection("RecordOf$uid").document(foodOfDate).collection("午餐").get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     list4Lunch.add(document.get("foodName").toString())
@@ -142,8 +153,8 @@ class FoodFragment : Fragment() {
                 )
             }
         //Dinner
-
-        db.collection("RecordOf$uid").document(date).collection("晚餐").get()
+        list4Dinner.clear()
+        db.collection("RecordOf$uid").document(foodOfDate).collection("晚餐").get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     list4Dinner.add(document.get("foodName").toString())
@@ -161,8 +172,8 @@ class FoodFragment : Fragment() {
                 )
             }
         //Other
-
-        db.collection("RecordOf$uid").document(date).collection("其他").get()
+        list4Other.clear()
+        db.collection("RecordOf$uid").document(foodOfDate).collection("其他").get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     list4Other.add(document.get("foodName").toString())
