@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_addFood" />
 
     <ExpandableListView
-        android:id="@+id/elv_meal"
+        android:id="@+id/f_elv_meal"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="60dp"

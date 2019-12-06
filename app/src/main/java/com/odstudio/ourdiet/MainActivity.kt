@@ -76,11 +76,13 @@ class MainActivity : AppCompatActivity() {
         updateOnHeader()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
-        return true
-    }
+ //   override fun onCreateOptionsMenu(menu: Menu): Boolean {
+ //       // Inflate the menu; this adds items to the action bar if it is present.
+ //       menuInflater.inflate(R.menu.main, menu)
+    //    val intent = Intent(this, FriendRequestActivity::class.java)
+   //     startActivity(intent)
+  ///     return true
+ //   }
 
     //appbar - toolbar button click
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
