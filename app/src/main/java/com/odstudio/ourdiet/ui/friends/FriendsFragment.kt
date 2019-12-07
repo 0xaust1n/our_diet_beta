@@ -98,24 +98,24 @@ class FriendsFragment : Fragment() {
                     exception
                 )
             }
-        db.collection("FriendsOf$uid")
-            .whereEqualTo("status","尚未確認").get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    list4Applying.add(document.get("uid").toString())
-                    list4Applying.add(document.get("email").toString())
-                    list4Applying.add(document.get("nick").toString())
-                    list4Applying.add(document.get("status").toString())
-                    child4Apply.add(count4Applying)
-                    count4Applying += 4
+            db.collection("FriendsOf$uid")
+                .whereEqualTo("status", "尚未確認").get()
+                .addOnSuccessListener { result ->
+                    for (document in result) {
+                        list4Applying.add(document.get("uid").toString())
+                        list4Applying.add(document.get("email").toString())
+                        list4Applying.add(document.get("nick").toString())
+                        list4Applying.add(document.get("status").toString())
+                        child4Apply.add(count4Applying)
+                        count4Applying += 4
+                    }
+                }.addOnFailureListener { exception ->
+                    Log.d(
+                        tag,
+                        "Error getting documents: ",
+                        exception
+                    )
                 }
-            }.addOnFailureListener { exception ->
-                Log.d(
-                    tag,
-                    "Error getting documents: ",
-                    exception
-                )
-            }
         list4Friends.clear()
         db.collection("FriendsOf$uid").whereEqualTo("status", "完成").get()
             .addOnSuccessListener { result ->

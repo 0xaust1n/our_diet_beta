@@ -70,7 +70,7 @@ data class FriendRecordingAdapter(
         parent: ViewGroup?
     ): View? {
 
-        val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.list_food, null)
+        val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.list_food_two, null)
         var foodName = view.findViewById<TextView>(R.id.foodName)
         var brand = view.findViewById<TextView>(R.id.brand)
         var calories = view.findViewById<TextView>(R.id.calories)

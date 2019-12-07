@@ -3,6 +3,7 @@ package com.odstudio.ourdiet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ContextThemeWrapper
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -54,18 +55,26 @@ class FriendRequestActivity : AppCompatActivity() {
         accept.setOnClickListener {
             db.collection("FriendsOf$uid").document(currentUser).update("status", "完成")
             db.collection("FriendsOf$currentUser").document(uid).update("status", "完成")
-            val intent = Intent(this, FriendsFragment::class.java)
-            startActivity(intent)
             Toast.makeText(this, "已經接受好友請求", Toast.LENGTH_SHORT).show()
-
+            Thread {
+                Runnable {
+                    Thread.sleep(200)
+                    val intent = Intent(this, FriendsFragment::class.java)
+                    startActivity(intent)
+                }
+            }
         }
         reject.setOnClickListener {
             db.collection("FriendsOf$uid").document(currentUser).delete()
             db.collection("FriendsOf$currentUser").document(uid).delete()
-            val intent = Intent(this, FriendsFragment::class.java)
-            startActivity(intent)
             Toast.makeText(this, "已經拒絕好友請求", Toast.LENGTH_SHORT).show()
-
+            Thread {
+                Runnable {
+                    Thread.sleep(200)
+                    val intent = Intent(this, FriendsFragment::class.java)
+                    startActivity(intent)
+                }
+            }
         }
     }
 }

@@ -82,7 +82,7 @@ class FriendsRecordingActivity : AppCompatActivity() {
     private fun readDate(foodOfDate: String) {
         var db = FirebaseFirestore.getInstance()
         var tag = "Database Ref"
-        var uid = FirebaseAuth.getInstance().currentUser!!.uid
+        var uid = intent.getStringExtra("uid")
         list4Breakfast.clear()
         //Breakfast
         db.collection("RecordOf$uid").document(foodOfDate).collection("早餐").get()
